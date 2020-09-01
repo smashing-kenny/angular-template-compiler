@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app="Demo">
+<head>
+  <meta charset="UTF-8">
+
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="src/main.js"></script>
+  
+	<script>
+		angular.module('Demo',['TemplateCompiler'])
+			.controller('ExampleController', ['$scope', function($scope) {
+				console.log('OK')
+				$scope.list = ['a', 'b', 'c', 'd'];
+			}]);
+
+	</script>
+</head>
+<body>
+
+	<table ng-controller="ExampleController">
+		<template ng-template-compiler="true">
+			<tr ng-repeat="item in list">
+				<td>{{item}}</td>
+			</tr>
+		</template>
+	</table>
+
+</body>
+</html>
